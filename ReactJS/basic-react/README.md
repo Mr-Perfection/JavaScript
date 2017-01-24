@@ -20,13 +20,10 @@ $ npm uninstall -g webpack-dev-server #and add the code below in package.json
 3. *NPM run dev*
 4. Navigate to localhost:8080
 
-## Time stamps from [YouTube video](https://www.youtube.com/watch?v=MhkGQAoc7bc)
-* 0:50 Babel overview
-* 1:29 Webpack config
-* 2:37 NPM install
-* 3:13 Looking at client.js & breaking down React
-* 5:45 Serving content from file
-* 6:18 Live reload w/ npm install -S webpack-dev-server
-* 7:10 webpack dev server --content-base src
-* 7:55 --Inline --hot (live reload)
-* 8:30 Creating a "dev" command in NPM
+## Followed LearnCode.academy's React.js tutorial
+### REACT JS TUTORIAL #{1..7}
+
+## Commits to follow...
+### commit 2bb8a19b8194847c053f9f7ff54bbcdb6c2b0106 (REACT JS TUTORIAL 1)
+### commit 57c5338989bd10593735559c0b3a9ae44f9f0ab2 (REACT JS TUTORIAL 2)
+### https://youtu.be/vu_rIMPROoQ?list=PLoYCgNOIyGABj2GQSlDRjgvXtqfDxKm5b&t=99
