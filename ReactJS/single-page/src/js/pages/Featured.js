@@ -5,6 +5,8 @@ import Article from "../components/Article";
 export default class Featured extends React.Component {
   render() {
     const Articles = [
+      "Some john",
+      "Some Other john",
       "Some Article",
       "Some Other Article",
       "Yet Another Article",
@@ -38,7 +40,6 @@ export default class Featured extends React.Component {
             </div>
           </div>
         </div>
-
         <div class="row">{Articles}</div>
       </div>
     );

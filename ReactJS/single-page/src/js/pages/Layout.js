@@ -15,7 +15,7 @@ export default class Layout extends React.Component {
     const { history } = this.props;
     console.log(history.isActive("archives"));
     const containerStyle = {
-      marginTop: "60px"
+      marginTop: "60px" //or "margin-top": "60px"
     };
     console.log("layout");
     return (
@@ -25,9 +25,6 @@ export default class Layout extends React.Component {
           <div class="row">
             <div class="col-lg-12">
               <h1>Stephenslee.net</h1>
-              <Link to="archives" activeClassName="test"><button class="btn btn-primary">archives</button></Link>
-              <Link to="settings"><button class="btn btn-success">settings</button></Link>
-              <button onClick={this.navigate.bind(this)}>featured</button>
               {this.props.children}
             </div>
           </div>

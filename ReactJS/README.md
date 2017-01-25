@@ -13,6 +13,7 @@ $ npm uninstall -g webpack-dev-server #and add the code below in package.json
 #to view the rendering options in chromle
 # go to console in Opera or Chrome and hit escape key (Use paint flashing).
 
+$NODE_ENV='production' webpack -p #production webpack optimization
 ```
 
 ## Learning lessons
@@ -66,6 +67,53 @@ const { date, filter } = query; //get date and filter params from query param.
 // detect active component in two ways
 console.log(history.isActive("archives")); //programmatically
 <Link to="archives" activeClassName="test"><button class="btn btn-primary">archives</button></Link> // systematically using activeClassName
+
+// cool way of getting active html element
+const { location } = this.props;
+const archivesClass = location.pathname.match(/^\/archives/) ? "active" : ""; //this will return true if it is matched pathname
+
+
+// index route is basically root path
+<IndexRoute component={Featured}></IndexRoute>
+
+
+// handle collapse in nav bar
+// initially nav bar is collapsed
+constructor() {
+  super()
+  this.state = {
+    collapsed: true,
+  };
+}
+
+// this toggleCollapse function will be used to invert collapsed boolean and update the state.
+toggleCollapse() {
+  const collapsed = !this.state.collapsed;
+  this.setState({collapsed});
+}
+
+// get the collapsed value from the state and create a constant variable based on collapsed
+render() {
+  const {collapsed} = this.state;
+  const navClass = collapsed ? "collapsed" : "";
+  return (
+    // ...
+    <button type="button" class="navbar-toggle" onClick={this.toggleCollapse.bind(this)} >
+    // ...
+    <IndexLink to="/" onClick={this.toggleCollapse.bind(this)}>Featured</IndexLink>
+    // ...
+  );
+}
+
+// use map to render a multiple partials
+const Articles = [
+  "hello",
+  "world",
+  "yeah",
+].map((title, id) => <Article key={id} title={title}/>);
+// ...
+
+
 ```
 
 ## Instructions to run
@@ -88,9 +136,17 @@ console.log(history.isActive("archives")); //programmatically
 
 ## single-page
 * commit 394209aa1b3928298130bebaf1e54aa87448d6e2 (REACT JS TUTORIAL #6)
+* commit b951e5f7ff6ee7619abc9422632dae12e4e212e3 (REACT JS TUTORIAL #7)
 
 ## Definitions
 
-###DOM
-- The Document Object Model (DOM) is an application programming interface (API) for valid HTML and well-formed XML documents. It defines the logical structure of documents and the way a document is accessed and manipulated.
-- In the DOM, documents have a logical structure which is very much like a tree; to be more precise, which is like a "forest" or "grove", which can contain more than one tree.
+**DOM**
+* The Document Object Model (DOM) is an application programming interface (API) for valid HTML and well-formed XML documents. It defines the logical structure of documents and the way a document is accessed and manipulated.
+* In the DOM, documents have a logical structure which is very much like a tree; to be more precise, which is like a "forest" or "grove", which can contain more than one tree.
+**JSX**
+* JSX is a preprocessor step that adds XML syntax to JavaScript. You can definitely use React without JSX but JSX makes React a lot more elegant. Just like XML, JSX tags have a tag name, attributes, and children. If an attribute value is enclosed in quotes, the value is a string.
+* Simply put, JSX is JavaScript with XML.
+
+## Q&A
+**Question: how can you use class in html tags in JSX? Shouldn't it be className?**
+* ```react-html-attrs``` transforms JSX class attributes into className and for attributes into htmlFor, allowing you to copy and paste HTML into your React components without having to manually edit these particular attributes each time
