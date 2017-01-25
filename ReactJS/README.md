@@ -24,23 +24,48 @@ $ npm uninstall -g webpack-dev-server #and add the code below in package.json
 * use .bind(this) for function call to specify which component you are calling function from.
 ```js
 
-# navigate()
-# whenever user presses the 'featuered' button it will show the props on console
+// navigate()
+// whenever user presses the 'featuered' button it will show the props on console
 <button onClick={this.navigate.bind(this)}>featured</button>
 navigate() {
   console.log(this.props);
 }
 
-# or you can do this...
-# this will navigate your application back to root path and you can go back to your previous state when used browser back button
+// or you can do this...
+// this will navigate your application back to root path and you can go back to your previous state when used browser back button
 <button onClick={this.navigate.bind(this)}>featured</button>
 navigate() {
   this.props.history.pushState(null, "/");
 }
 
-# this too.
-# this will navigate your application back to root path. You cannot reverse your action though because you replaced the state. 
+// this too.
+// this will navigate your application back to root path. You cannot reverse your action though because you replaced the state.
 this.props.history.replaceState(null, "/");
+
+// params
+
+// inside Router
+<Route path="archives(/:article)" name="archives" component={Archives}></Route>
+//(/:article) <= () around /:article means if there is no matching article, it will render all archives
+// archives component
+const { params } = this.props;
+const { article } = params;
+// http://localhost:8080/#/archives/some-articles?_k=jcmgui as an example url
+<h1>Archives ({article})</h1>
+
+
+// location
+const { query } = this.props.location;
+const { date, filter } = query; //get date and filter params from query param.
+
+// http://localhost:8080/#/archives/some-articles?_k=jcmgui?date=today&filter=none, ?date=today&filter=none is the location param.
+// archives component
+<h4>date: {date}, filter: {filter}</h4>
+
+
+// detect active component in two ways
+console.log(history.isActive("archives")); //programmatically
+<Link to="archives" activeClassName="test"><button class="btn btn-primary">archives</button></Link> // systematically using activeClassName
 ```
 
 ## Instructions to run
@@ -55,14 +80,14 @@ this.props.history.replaceState(null, "/");
 
 
 ## basic-react
-### commit 2bb8a19b8194847c053f9f7ff54bbcdb6c2b0106 (REACT JS TUTORIAL #1)
-### commit 57c5338989bd10593735559c0b3a9ae44f9f0ab2 (REACT JS TUTORIAL #2)
-### commit 2bb8a19b8194847c053f9f7ff54bbcdb6c2b0106 (REACT JS TUTORIAL #3)
-### commit 2f22485fb9513116d1ea46765086ab9723f034d9 (REACT JS TUTORIAL #4)
-### commit e630fc111af40f6b31370e3093a709a258537503 (REACT JS TUTORIAL #5)
+* commit 2bb8a19b8194847c053f9f7ff54bbcdb6c2b0106 (REACT JS TUTORIAL #1)
+* commit 57c5338989bd10593735559c0b3a9ae44f9f0ab2 (REACT JS TUTORIAL #2)
+* commit 2bb8a19b8194847c053f9f7ff54bbcdb6c2b0106 (REACT JS TUTORIAL #3)
+* commit 2f22485fb9513116d1ea46765086ab9723f034d9 (REACT JS TUTORIAL #4)
+* commit e630fc111af40f6b31370e3093a709a258537503 (REACT JS TUTORIAL #5)
 
 ## single-page
-### commit  (REACT JS TUTORIAL #6)
+* commit 394209aa1b3928298130bebaf1e54aa87448d6e2 (REACT JS TUTORIAL #6)
 
 ## Definitions
 
