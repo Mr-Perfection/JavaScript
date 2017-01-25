@@ -114,6 +114,37 @@ const Articles = [
 // ...
 
 
+
+//events - a super-basic Javascript (publish subscribe) pattern
+
+var events = {
+  events: {},
+  on: function (eventName, fn) {
+    this.events[eventName] = this.events[eventName] || [];
+    this.events[eventName].push(fn);
+  },
+  off: function(eventName, fn) {
+    if (this.events[eventName]) {
+      for (var i = 0; i < this.events[eventName].length; i++) {
+        if (this.events[eventName][i] === fn) {
+          this.events[eventName].splice(i, 1);
+          break;
+        }
+      };
+    }
+  },
+  emit: function (eventName, data) {
+    if (this.events[eventName]) {
+      this.events[eventName].forEach(function(fn) {
+        fn(data);
+      });
+    }
+  }
+};
+
+// React Flux
+
+
 ```
 
 ## Instructions to run
@@ -123,7 +154,7 @@ const Articles = [
 4. Navigate to localhost:8080
 
 ## References
-### REACT JS TUTORIAL #{1..5} from LearnCode.academy on YouTube
+### REACT JS TUTORIALS from LearnCode.academy on YouTube
 
 
 
@@ -137,6 +168,10 @@ const Articles = [
 ## single-page
 * commit 394209aa1b3928298130bebaf1e54aa87448d6e2 (REACT JS TUTORIAL #6)
 * commit b951e5f7ff6ee7619abc9422632dae12e4e212e3 (REACT JS TUTORIAL #7)
+* commit ed26a9f917f530bd8db39ed03d8eae168459657f (REACT JS TUTORIAL #8)
+
+## react-flux
+
 
 ## Definitions
 
@@ -146,7 +181,12 @@ const Articles = [
 **JSX**
 * JSX is a preprocessor step that adds XML syntax to JavaScript. You can definitely use React without JSX but JSX makes React a lot more elegant. Just like XML, JSX tags have a tag name, attributes, and children. If an attribute value is enclosed in quotes, the value is a string.
 * Simply put, JSX is JavaScript with XML.
-
+**EventsSystem (Mediator or PubSub)**
+* pubsub design pattern (publish/subscribe), which allows us to decouple our modules. Once integrated with our pubsub module, they can emit events and not have to worry about which modules depend on them. Modules can subscribe to events and be notified when any module publishes.
+**React Flux**
+* Flux is a system architecture that encourages single-directional data flow through your application
+* components -> Actions -> Dispatcher -> Stores -> components
+* Works similar to EventsSystem, and the only difference is that all the data should flow into the Stores through Actions. Similarly, the data flows out of the Stores via listeners. It promotes unidirectional data flow and you have a clear idea about how the data flows throughout your app.
 ## Q&A
 **Question: how can you use class in html tags in JSX? Shouldn't it be className?**
 * ```react-html-attrs``` transforms JSX class attributes into className and for attributes into htmlFor, allowing you to copy and paste HTML into your React components without having to manually edit these particular attributes each time
