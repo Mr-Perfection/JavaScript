@@ -21,7 +21,7 @@ $ npm uninstall -g webpack-dev-server #and add the code below in package.json
 * React automatically handles DOM manipulation
 * State is initialized in the constructor method and can be accessed by calling this.state.{KEY_VALUE}
 * Props is a properties that can be transferred through parameters in component by calling <Header name={VALUE}/> and in Header component, you can simply use it as this.props.name
-* use .bind(this) for function call to specify which component you are calling function from. 
+* use .bind(this) for function call to specify which component you are calling function from.
 
 
 ## Instructions to run
@@ -40,7 +40,8 @@ $ npm uninstall -g webpack-dev-server #and add the code below in package.json
 ### commit 57c5338989bd10593735559c0b3a9ae44f9f0ab2 (REACT JS TUTORIAL #2)
 ### commit 2bb8a19b8194847c053f9f7ff54bbcdb6c2b0106 (REACT JS TUTORIAL #3)
 ### commit 2f22485fb9513116d1ea46765086ab9723f034d9 (REACT JS TUTORIAL #4)
-### commit  (REACT JS TUTORIAL #5)
+### commit e630fc111af40f6b31370e3093a709a258537503 (REACT JS TUTORIAL #5)
+### commit (REACT JS TUTORIAL #6)
 
 
 
