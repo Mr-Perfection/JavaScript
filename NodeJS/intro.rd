@@ -1,6 +1,7 @@
 # Intro to Node.js
 
 ## Getting started
+
 ```
 $ mkdir sample
 $ cd sample
