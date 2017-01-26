@@ -1,6 +1,6 @@
 ## Dear readers
 
-*This repository is dedicated to showcase what I learned about React.js. I love learning new things and hope that this can help you learn about React as well. *
+**This repository is dedicated to showcase what I learned about React.js. I love learning new things and hope that this can help you learn about React as well. **
 
 ## Useful commands
 
