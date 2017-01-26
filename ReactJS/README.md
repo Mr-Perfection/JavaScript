@@ -1,3 +1,7 @@
+## Dear readers
+
+**This repository is dedicated to showcase what I learned about React.js. I love learning new things and hope that this can help you learn about React as well. **
+
 ## Useful commands
 
 ```
@@ -16,7 +20,7 @@ $ npm uninstall -g webpack-dev-server #and add the code below in package.json
 $NODE_ENV='production' webpack -p #production webpack optimization
 ```
 
-## Learning lessons
+## What I learned
 
 
 * React automatically handles DOM manipulation
