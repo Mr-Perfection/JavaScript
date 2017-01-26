@@ -157,20 +157,20 @@ var events = {
 ### REACT JS TUTORIALS from LearnCode.academy on YouTube
 
 
-
 ## basic-react
-* commit 2bb8a19b8194847c053f9f7ff54bbcdb6c2b0106 (REACT JS TUTORIAL #1)
-* commit 57c5338989bd10593735559c0b3a9ae44f9f0ab2 (REACT JS TUTORIAL #2)
-* commit 2bb8a19b8194847c053f9f7ff54bbcdb6c2b0106 (REACT JS TUTORIAL #3)
-* commit 2f22485fb9513116d1ea46765086ab9723f034d9 (REACT JS TUTORIAL #4)
-* commit e630fc111af40f6b31370e3093a709a258537503 (REACT JS TUTORIAL #5)
+* commit 2bb8a19b8194847c053f9f7ff54bbcdb6c2b0106
+* commit 57c5338989bd10593735559c0b3a9ae44f9f0ab2
+* commit 2bb8a19b8194847c053f9f7ff54bbcdb6c2b0106
+* commit 2f22485fb9513116d1ea46765086ab9723f034d9
+* commit e630fc111af40f6b31370e3093a709a258537503
 
 ## single-page
-* commit 394209aa1b3928298130bebaf1e54aa87448d6e2 (REACT JS TUTORIAL #6)
-* commit b951e5f7ff6ee7619abc9422632dae12e4e212e3 (REACT JS TUTORIAL #7)
-* commit ed26a9f917f530bd8db39ed03d8eae168459657f (REACT JS TUTORIAL #8)
+* commit 394209aa1b3928298130bebaf1e54aa87448d6e2
+* commit b951e5f7ff6ee7619abc9422632dae12e4e212e3
+* commit ed26a9f917f530bd8db39ed03d8eae168459657f
 
-## react-flux
+## react-flux (To-Do List)
+* commit c203d6d6c81783518ab049ff2e449d9f2a9ee82c
 
 
 ## Definitions
@@ -187,6 +187,7 @@ var events = {
 * Flux is a system architecture that encourages single-directional data flow through your application
 * components -> Actions -> Dispatcher -> Stores -> components
 * Works similar to EventsSystem, and the only difference is that all the data should flow into the Stores through Actions. Similarly, the data flows out of the Stores via listeners. It promotes unidirectional data flow and you have a clear idea about how the data flows throughout your app.
+
 ## Q&A
 **Question: how can you use class in html tags in JSX? Shouldn't it be className?**
 * ```react-html-attrs``` transforms JSX class attributes into className and for attributes into htmlFor, allowing you to copy and paste HTML into your React components without having to manually edit these particular attributes each time
