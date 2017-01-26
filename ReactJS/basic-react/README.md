@@ -1,4 +1,4 @@
-## News Articles (Single-Page Application)
+## React Basics
 
-## Demo Images
-![Alt text](/ReactJS/basic-react/articles_0.png?raw=true "ARTICLES #1")
+** Learned about basic setup and how all the components work together as an app. **
+
