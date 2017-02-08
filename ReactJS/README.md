@@ -1,3 +1,7 @@
+CONTINUE ON https://youtu.be/bvEC6i7CUyE?t=73
+
+
+
 ## Useful commands
 
 ```
