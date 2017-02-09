@@ -25,10 +25,41 @@ app.listen(3000, function() {
   console.log('Annyeong, server is up and running sir!')
 });
 
-// create a component
-// only one root html tag can be inside the return. Check app.jsx
+// create a component and only one root html tag can be inside the return. Check app.jsx
 var Greeter = React.createClass({render:function(){return ...}})
 
+// use props
+var Greeter = React.createClass({
+  render: function() {
+    var name = this.props.name;
+    return (
+      <div>
+        <h1>Annyeong {name}</h1>
+        <p>tis is from Stephen Lee</p>
+      </div>
+    );
+  }
+});
+
+// app.jsx: form on button click
+onButtonClick: function(e){
+  // prevent page from full browser reload when the form gets submitted
+  e.preventDefault();
+  var name = this.refs.name.value;
+  alert(name);
+},
+...
+  <form onSubmit={this.onButtonClick}>
+      <input type="text" ref="name"/>
+      <button>Set Name</button>
+  </form>
+...
+
+
+ReactDOM.render(
+  <Greeter name="Stephen"/>, //JSX code
+  document.getElementById('app')
+);
 ```
 
 ```html
@@ -44,6 +75,7 @@ var Greeter = React.createClass({render:function(){return ...}})
     document.getElementById('app')
   );
 </script>
+
 ```
 
 ## License
