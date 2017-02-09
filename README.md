@@ -19,6 +19,8 @@ React is an AMAZING Javascript library (some argue, is a framework) that allows 
 I will be building mobile apps in the future...
 
 ## References
+https://babeljs.io/repl #great to check JSX with JS
+
 https://atom.io/packages/javascript-snippets #for hotkeys
 
 https://www.youtube.com/channel/UCVTlvUkGslCV_h-nSAId8Sw #great React.js videos

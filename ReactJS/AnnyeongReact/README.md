@@ -14,6 +14,7 @@ $ npm install # if express is not part of package.json
 # run server
 $ node server # alternatively server.js
 ```
+
 ```js
 // tell which server to serve
 // which folder name to expose to the public
@@ -23,6 +24,11 @@ app.use(express.static('public'));
 app.listen(3000, function() {
   console.log('Annyeong, server is up and running sir!')
 });
+
+// create a component
+// only one root html tag can be inside the return. Check app.jsx
+var Greeter = React.createClass({render:function(){return ...}})
+
 ```
 
 ```html
