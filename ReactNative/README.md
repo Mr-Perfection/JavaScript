@@ -7,32 +7,32 @@
 ## Installation
 **Xcode**
 
-	* package our code + the React Native library into an installable app and run it on the iOS simulator.
-	* IMPORTANT: make sure to have latest version Xcode.
+	package our code + the React Native library into an installable app and run it on the iOS simulator.
+	IMPORTANT: make sure to have latest version Xcode.
 **Homebrew**
 
-	* just to install node. lolz
-		`brew install node`
-		`node -v`
+	just to install node. lolz
+	`brew install node`
+	`node -v`
 **Node/NPM**
 
-	* Node runs JS outside of the browser. NPM is used for installing and managing depedencies Node and NPM come together
+	Node runs JS outside of the browser. NPM is used for installing and managing depedencies Node and NPM come together
 **Watchman**
 
-	* watches files on the hard drive and waits for them to change
-		`brew install watchman` or wanna delete? `brew unlink watchman`
+	watches files on the hard drive and waits for them to change
+	`brew install watchman` or wanna delete? `brew unlink watchman`
 **RN CLI**
 
-	* React Native command line interface. Used to generate new React Native projects
-		`npm install -g react-native-cli`
+	React Native command line interface. Used to generate new React Native projects
+	`npm install -g react-native-cli`
 
 ## ESLint Setup
 **Atom**
 
-	* get linter-eslint.
+	get linter-eslint.
 **Configs**
 
-	* need to set up configs inside the projects. Check out Albums for more. Project specific setup
+	need to set up configs inside the projects. Check out Albums for more. Project specific setup
 # Albums React Native App
 ```
 $ react-native init albums # create an app called albums
