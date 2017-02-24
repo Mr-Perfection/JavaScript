@@ -21,10 +21,14 @@
 	* React Native command line interface. Used to generate new React Native projects
 		`npm install -g react-native-cli`
 
-
+## ESLint Setup
+**Atom**
+	* get linter-eslint.
+**Configs**
+	* need to set up configs inside the projects. Check out Albums for more. Project specific setup
 # Albums React Native App
 ```
-$ react-native init albums
+$ react-native init albums # create an app called albums
 ```
 
 ## References
