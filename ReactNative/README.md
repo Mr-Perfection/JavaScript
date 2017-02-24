@@ -13,19 +13,19 @@
 **Homebrew**
 
 	just to install node. lolz
-	`brew install node`
-	`node -v`
+	brew install node
+	node -v
 **Node/NPM**
 
 	Node runs JS outside of the browser. NPM is used for installing and managing depedencies Node and NPM come together
 **Watchman**
 
 	watches files on the hard drive and waits for them to change
-	`brew install watchman` or wanna delete? `brew unlink watchman`
+	brew install watchman` or wanna delete? brew unlink watchman
 **RN CLI**
 
 	React Native command line interface. Used to generate new React Native projects
-	`npm install -g react-native-cli`
+	npm install -g react-native-cli
 
 ## ESLint Setup
 **Atom**
@@ -40,4 +40,4 @@ $ react-native init albums # create an app called albums
 ```
 
 ## References
-Udemy courses & lots of googling
+* Udemy courses & lots of googling
