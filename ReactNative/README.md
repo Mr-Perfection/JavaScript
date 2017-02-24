@@ -6,10 +6,10 @@
 
 ## Installation
 **Xcode**
-"""
+
 	package our code + the React Native library into an installable app and run it on the iOS simulator.
 	IMPORTANT: make sure to have latest version Xcode.
-"""
+
 **Homebrew**
 
 	just to install node. lolz
