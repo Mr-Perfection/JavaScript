@@ -40,4 +40,4 @@ $ react-native init albums # create an app called albums
 ```
 
 ## References
-* Udemy courses & lots of googling
+* Udemy courses & lots of googling & my knowledge in JS
