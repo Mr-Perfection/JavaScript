@@ -15,3 +15,9 @@ import ReactNative from 'react-native';
  };
 
 // Render it to the device
+/*
+  Register at least one component
+  @param string, project name
+  @param function,  component
+*/
+ReactNative.AppRegistry.registerComponent('albums', () => App);
