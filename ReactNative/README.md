@@ -21,7 +21,7 @@
 **Watchman**
 
 	watches files on the hard drive and waits for them to change
-	brew install watchman` or wanna delete? brew unlink watchman
+	`brew install watchman` or wanna delete? brew unlink watchman
 **RN CLI**
 
 	React Native command line interface. Used to generate new React Native projects
@@ -29,15 +29,33 @@
 
 ## ESLint Setup
 **Atom**
-
 	get linter-eslint.
 **Configs**
-
 	need to set up configs inside the projects. Check out Albums for more. Project specific setup
-# Albums React Native App
+
+## React vs ReactNative
+**React**
+* Knows how a component should behave.
+* Knows how to take a bunch of components and make them work together.
+**React Native**
+* Knows how to take the  output from a component and place it on the screen.
+* Provides default care components (image, text)
+
+# Projects
+
+
+
+## Albums React Native App
 ```
 $ react-native init albums # create an app called albums
 ```
 
-## References
+
+
+
+
+# References
 * Udemy courses & lots of googling & my knowledge in JS
+
+# License
+* MIT
