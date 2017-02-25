@@ -9,3 +9,5 @@ $ touch .eslintrc # create custom config file here
                   # basically we set rallycoding
 
 ```
+
+## Glossary
