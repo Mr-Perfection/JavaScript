@@ -33,6 +33,11 @@
 **Configs**
 	need to set up configs inside the projects. Check out Albums for more. Project specific setup
 
+## Commands
+```
+$ react-native run-ios # run application in iOS env
+```
+
 ## React vs ReactNative
 **React**
 * Knows how a component should behave.

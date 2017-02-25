@@ -4,15 +4,15 @@
 // Import a library to help create a component
 //
 import React from 'react';
-import ReactNative from 'react-native';
+// Do import destructuring (import only things you need)
+// import ReactNative from 'react-native';
+import { Text, AppRegistry } from 'react-native';
 
 // Create a component
- const App = () => {
-   return (
+const App = () => (
     //  Nesting some content in Text
-     <Text>Some Text </Text>
-   );
- };
+    <Text>Some Text </Text>
+);
 
 // Render it to the device
 /*
@@ -20,4 +20,4 @@ import ReactNative from 'react-native';
   @param string, project name
   @param function,  component
 */
-ReactNative.AppRegistry.registerComponent('albums', () => App);
+AppRegistry.registerComponent('albums', () => App);
