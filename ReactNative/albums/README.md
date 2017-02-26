@@ -12,5 +12,9 @@ $ touch .eslintrc # create custom config file here
 ## Components
 * Header, CardSection, Card, CardSection, CardSection
 
+## Hierarchy
+* App(root), uses AppRegistry
+* Header(child), exports itself
+
 ## Glossary
-* Component: in react, it is a block of codes that can be reused throughout the application. Highly reusable and constructive. 
+* Component: in react, it is a block of codes that can be reused throughout the application. Highly reusable and constructive.

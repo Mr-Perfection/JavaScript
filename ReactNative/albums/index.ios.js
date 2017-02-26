@@ -11,7 +11,7 @@ import { Text, AppRegistry } from 'react-native';
 // Create a component
 const App = () => (
     //  Nesting some content in Text
-    <Text>Some Text </Text>
+    <Text>Some Text </Text> 
 );
 
 // Render it to the device
