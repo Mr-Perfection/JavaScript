@@ -14,7 +14,7 @@ const Header = () => {
   );
 };
 
-// Styling rules
+// Styling rules: text, view, flexbox  
 const styles = {
   textStyle: {
     fontSize: 20

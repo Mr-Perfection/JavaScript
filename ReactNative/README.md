@@ -4,6 +4,15 @@
 
 # Getting started!
 
+## ESLint configurations
+```
+$ npm install --save-dev eslint-config-rallycoding
+$ touch .eslintrc # create custom config file here
+                  # check out the file to see what i wrote.
+                  # basically we set rallycoding
+
+```
+
 ## Installation
 **Xcode**
 
@@ -49,9 +58,9 @@ $ react-native run-ios # run application in iOS env
 * Knows how to take the  output from a component and place it on the screen.
 * Provides default care components (image, text)
 * Styling: have to style them manually.
+
+
 # Projects
-
-
 
 ## Albums React Native App
 ```
