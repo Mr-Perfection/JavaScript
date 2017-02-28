@@ -6,12 +6,12 @@
 import React from 'react';
 // Do import destructuring (import only things you need)
 // import ReactNative from 'react-native';
-import { Text, AppRegistry } from 'react-native';
-
+import { AppRegistry } from 'react-native';
+import Header from './src/components/header';
 // Create a component
 const App = () => (
     //  Nesting some content in Text
-    <Text>Some Text </Text> 
+    <Header />
 );
 
 // Render it to the device
