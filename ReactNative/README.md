@@ -39,13 +39,16 @@ $ react-native run-ios # run application in iOS env
 ```
 
 ## React vs ReactNative
+
 **React**
 * Knows how a component should behave.
 * Knows how to take a bunch of components and make them work together.
+* Styling: Bootstrap etc.
+
 **React Native**
 * Knows how to take the  output from a component and place it on the screen.
 * Provides default care components (image, text)
-
+* Styling: have to style them manually.
 # Projects
 
 
