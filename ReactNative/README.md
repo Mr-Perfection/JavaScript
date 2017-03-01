@@ -46,6 +46,8 @@ $ touch .eslintrc # create custom config file here
 ```
 $ react-native run-ios # run application in iOS env
 ```
+* Press CMD + D for simulator in a debug mode
+* use `debugger;` statement to debug XD
 
 ## React vs ReactNative
 
@@ -76,6 +78,7 @@ const Header = () => {
 * Handles any data that might change (fetching data, user events, etc)
 * Knows when it gets rerendered to the device (useful for data fetching)
 * More code to write
+* Life cycle methods
 
 ```js
 class Header extends Component {
