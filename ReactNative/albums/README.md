@@ -16,3 +16,4 @@
 
 ## Glossary
 * Component: in react, it is a block of codes that can be reused throughout the application. Highly reusable and constructive.
+* Props is a properties that can be transferred through parameters in component by calling <Header name={VALUE}/> and in Header component, you can simply use it as this.props.name

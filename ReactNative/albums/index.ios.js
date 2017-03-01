@@ -10,7 +10,7 @@ import Header from './src/components/header';
 // Create a component
 const App = () => (
     //  Nesting some content in Text
-    <Header />
+    <Header headerText={'Albums'} />
 );
 
 // Render it to the device
