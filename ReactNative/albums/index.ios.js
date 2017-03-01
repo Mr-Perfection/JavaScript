@@ -5,12 +5,16 @@
 import React from 'react';
 // Do import destructuring (import only things you need)
 // import ReactNative from 'react-native';
-import { AppRegistry } from 'react-native';
-import Header from './src/components/header';
+import { AppRegistry, View } from 'react-native';
+import Header from './src/components/Header';
+import AlbumList from './src/components/AlbumList';
 // Create a component
 const App = () => (
-    //  Nesting some content in Text
+  //  Nesting some content in Text
+  <View>
     <Header headerText={'Albums'} />
+    <AlbumList />
+  </View>
 );
 
 // Render it to the device
