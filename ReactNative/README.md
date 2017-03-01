@@ -59,15 +59,37 @@ $ react-native run-ios # run application in iOS env
 * Provides default care components (image, text)
 * Styling: have to style them manually.
 
+## functional Component vs. Class Component
 
+**Functional Component**
+* Used for presenting static data
+* Cannot handle fetching data
+* Easy to write
+
+```js
+const Header = () => {
+    return <Text>Hi, gapaso~!</Text>
+}
+```
+**Class Component**
+* Used for dynamic sources of data
+* Handles any data that might change (fetching data, user events, etc)
+* Knows when it gets rerendered to the device (useful for data fetching)
+* More code to write
+
+```js
+class Header extends Component {
+  render() {
+    return <Text>Hi, gapaso~!</Text>
+  }
+}
+```
 # Projects
 
 ## Albums React Native App
 ```
 $ react-native init albums # create an app called albums
 ```
-
-
 
 
 
