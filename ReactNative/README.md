@@ -90,6 +90,9 @@ class Header extends Component {
 
 ## Component level state
 * Component has a default state.
+* a plain JS object used to record and respond to user-triggered events (including when user opens your app).
+* When we need to update what a component shows, call `this.setState`
+* Only change state with `setState`, do not do `this.state=?`
 
 # Projects
 
