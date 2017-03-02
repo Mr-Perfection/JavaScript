@@ -87,6 +87,10 @@ class Header extends Component {
   }
 }
 ```
+
+## Component level state
+* Component has a default state.
+
 # Projects
 
 ## Albums React Native App
