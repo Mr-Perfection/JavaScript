@@ -61,6 +61,16 @@ $ react-native run-ios # run application in iOS env
 * Provides default care components (image, text)
 * Styling: have to style them manually.
 
+## Angular vs. React
+* DOM
+    Angular creates customized Document Object Model (DOM) elements.
+    React has Virtual dom: Your changes get reflected to a virtual DOM. Then you diff that with the actual dom,
+    and only update what changed. This makes updates faster.
+
+* Data Flow
+    Angular has a two way data binding (view updates model model updates view) but React has uni-directional
+    (https://medium.com/@AdamRNeary/unidirectional-data-flow-yes-flux-i-am-not-so-sure-b4acf988196c#.i8o6n8sgb) data flow.
+
 ## functional Component vs. Class Component
 
 **Functional Component**
