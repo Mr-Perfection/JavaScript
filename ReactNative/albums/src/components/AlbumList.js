@@ -1,7 +1,8 @@
 // import a library
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import axios from 'axios';
+import AlbumDetail from './AlbumDetail';
 
 // create a component
 // Album list class-based component
@@ -18,7 +19,11 @@ class AlbumList extends Component {
   }
 
   renderAlbums() {
-    return this.state.albums.map(album => <Text>{album.title}</Text>);
+    return this.state.albums.map(album =>
+      // need key attribute so that react knows
+      // when to update the DOM elements in any given time.
+      <AlbumDetail key={album.title} album={album} />
+    );
   }
   render() {
     console.log(this.state);
