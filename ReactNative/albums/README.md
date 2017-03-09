@@ -11,8 +11,10 @@
 * Use text, view, flexbox from react-native module
 
 ## Flexbox
-* justifyContent(top -> down): 'flex-start','center','flex-end'
+* justifyContent(top -> down): 'flex-start','center','flex-end','space-around','space-between'
 * alignItems (left -> right): 'flex-start','center','flex-end'
+* flexDirection:
+'column' (spacing vertical direction),'row' (spacing horizontal direction)
 
 ## Axios
 * Promise based HTTP client for the browser and node.js
