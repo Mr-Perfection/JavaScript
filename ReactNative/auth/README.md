@@ -13,3 +13,4 @@ $ react-native init auth
 
 ## Components
 * Header, Card/CardSection, LoginForm, Button
+* Create ```index.js``` from ```./src/components/``` to modularize the import statements which can be used by common root component.
