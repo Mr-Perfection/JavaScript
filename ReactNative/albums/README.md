@@ -1,5 +1,7 @@
 # Albums React Native App
 
+I built an Album application using random albums & artists.
+
 ## Components
 * Header, CardSection, Card, CardSection, CardSection
 
