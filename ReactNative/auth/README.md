@@ -8,6 +8,7 @@ I built a simple authentication using Firebase
 ## Setup
 ```
 $ react-native init auth
+$ react
 
 ```
 
