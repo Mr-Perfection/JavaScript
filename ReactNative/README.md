@@ -107,11 +107,16 @@ class Header extends Component {
 # Projects
 
 ## Albums React Native App
+build an instagram-like application
 ```
 $ react-native init albums # create an app called albums
 ```
 
+## Authentication React Native App
+build an Authentication application with firebase
 
+## Tech Stack React Native App
+build an application using Redux
 
 # References
 * Udemy courses & lots of googling & my knowledge in JS
