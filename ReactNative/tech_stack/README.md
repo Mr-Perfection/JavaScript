@@ -4,7 +4,7 @@
 I built a simple application using Redux
 
 # Redux
-[Check it out my diagram](redux.xml)
+![alt text](demo/redux.ong "redux demo")
 ```js
 
 const reducer = (state=[], action) => {
