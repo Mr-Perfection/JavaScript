@@ -8,15 +8,20 @@ class LoginForm extends Component {
 
   onButtonPress() {
     const { email, password } = this.state;
+
     this.setState({ error: '', loading: true });
 
     firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(this.onLoginSuccess.bind(this))
-    .catch(() => {
-      firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(this.onLoginSuccess.bind(this))
-      .catch(this.onLoginFail.bind(this));
-    });
+      .catch(() => {
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+          .then(this.onLoginSuccess.bind(this))
+          .catch(this.onLoginFail.bind(this));
+      });
+  }
+
+  onLoginFail() {
+    this.setState({ error: 'Authentication Failed', loading: false });
   }
 
   onLoginSuccess() {
@@ -28,38 +33,38 @@ class LoginForm extends Component {
     });
   }
 
-  onLoginFail() {
-    this.setState({ error: 'Authentication Failed!', loading: false });
-  }
-
   renderButton() {
-      if (this.state.loading) {
-        return <Spinner size="small" />;
-      }
+    if (this.state.loading) {
+      return <Spinner size="small" />;
+    }
 
-      return (
-        <Button onPress={this.onButtonPress.bind(this)}>
-          Log in
-        </Button>
-      );
+    return (
+      <Button onPress={this.onButtonPress.bind(this)}>
+        Log in
+      </Button>
+    );
   }
+
   render() {
     return (
       <Card>
+
         <CardSection>
           <Input
-            label="Email"
-            onChangeText={email => this.setState({ email })}
             placeholder="user@gmail.com"
+            label="Email"
+            value={this.state.email}
+            onChangeText={email => this.setState({ email })}
           />
         </CardSection>
 
         <CardSection>
           <Input
+            secureTextEntry
             placeholder="password"
             label="Password"
+            value={this.state.password}
             onChangeText={password => this.setState({ password })}
-            secureTextEntry
           />
         </CardSection>
 
@@ -68,7 +73,7 @@ class LoginForm extends Component {
         </Text>
 
         <CardSection>
-          { this.renderButton() }
+          {this.renderButton()}
         </CardSection>
       </Card>
     );
