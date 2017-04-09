@@ -4,7 +4,7 @@
 I built a simple application using Redux
 
 # Redux
-![alt text](demo/redux.ong "redux demo")
+![alt text](demo/redux.png "redux demo")
 ```js
 
 const reducer = (state=[], action) => {
@@ -24,4 +24,4 @@ store.dispatch(action);
 store.getState();
 
 ```
-![alt text](demo/redux_in_pratice.ong "redux demo")
+![alt text](demo/redux_in_pratice.png "redux demo")
