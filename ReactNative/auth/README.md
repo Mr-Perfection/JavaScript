@@ -10,7 +10,14 @@ I built a simple authentication using Firebase
 ## Setup
 ```
 $ react-native init auth
-$ react
+$ npm install --save firebase
+
+```
+
+## How to run
+
+```
+$ react-native run-ios
 
 ```
 

@@ -31,6 +31,7 @@ class LoginForm extends Component {
   onLoginFail() {
     this.setState({ error: 'Authentication Failed!', loading: false });
   }
+
   renderButton() {
       if (this.state.loading) {
         return <Spinner size="small" />;
