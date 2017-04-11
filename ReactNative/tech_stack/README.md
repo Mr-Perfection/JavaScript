@@ -4,12 +4,16 @@
 I built a simple application using Redux
 
 # Redux
+Use [Playground](https://stephengrider.github.io/JSPlaygrounds/)
+
 ![alt text](demo/redux.png "redux demo")
 ```js
 
 const reducer = (state=[], action) => {
 	if (action.type === 'split_string') {
   	return action.payload.split('');
+  } else if (action.type === 'add_character') {
+    return [ ...state, action.payload ];
   }
   return state;
 };
@@ -20,7 +24,15 @@ const action = {
   	payload: 'adds'
 };
 
+const action2 = {
+  type: 'add_character',
+  payload: 'a'
+};
+
 store.dispatch(action);
+store.getState();
+
+store.dispatch(action2);
 store.getState();
 
 ```
