@@ -3,7 +3,13 @@
 
 I built a simple application using Redux
 
-# Redux
+### Setup
+```
+$ npm install --save redux react-redux # install redux
+$ npm install --save-dev eslint-config-rallycoding # make sure to setup [ESlint](ReactNative/tech_stack/.eslintrc) ;)
+
+```
+### Redux
 Use [Playground](https://stephengrider.github.io/JSPlaygrounds/)
 
 ![alt text](demo/redux.png "redux demo")
