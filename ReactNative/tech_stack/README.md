@@ -18,6 +18,8 @@ Use [Playground](https://stephengrider.github.io/JSPlaygrounds/)
 **How Redux works in React Native**
 ![alt text](demo/redux-react-native.png "redux react-native demo")
 
+
+
 ```js
 
 const reducer = (state=[], action) => {
