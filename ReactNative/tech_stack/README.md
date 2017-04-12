@@ -11,8 +11,12 @@ $ npm install --save-dev eslint-config-rallycoding # make sure to setup [ESlint]
 ```
 ### Redux
 Use [Playground](https://stephengrider.github.io/JSPlaygrounds/)
-
+** How Redux works **
 ![alt text](demo/redux.png "redux demo")
+
+** How Redux works in React Native **
+![alt text](demo/redux-react-native.png "redux react-native demo")
+
 ```js
 
 const reducer = (state=[], action) => {
