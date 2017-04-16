@@ -57,5 +57,6 @@ store.getState();
 
 
 ### Implementation
-I have two reducers for two different states.
 ![alt text](demo/reducers.png "reducers")
+
+I have two reducers for two different states.
