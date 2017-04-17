@@ -47,7 +47,7 @@ store.dispatch(action2);
 store.getState();
 
 ```
-![alt text][demo/redux_in_pratice.png "redux demo"]
+![alt text](demo/redux_in_pratice.png "redux demo")
 
 
 ### How Redux works
@@ -57,7 +57,7 @@ store.getState();
 ![alt text](demo/redux-react-native.png "redux react-native demo")
 
 ### Lifecycle
-![alt text][demo/redux_lifecycle.png "redux react-native lifecycle"]
+![alt text](demo/redux_lifecycle.png "redux react-native lifecycle")
 
 ### Reducers
 ![alt text](demo/reducers.png "reducers")
