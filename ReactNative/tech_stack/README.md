@@ -47,7 +47,7 @@ store.dispatch(action2);
 store.getState();
 
 ```
-![alt text](demo/redux_in_pratice.png "redux demo")
+![alt text][demo/redux_in_pratice.png "redux demo"]
 
 
 ### How Redux works
