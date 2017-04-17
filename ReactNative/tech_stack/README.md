@@ -1,7 +1,8 @@
 # Welcome to my tech stack Repo!
 "Make the most out of every moment."
 
-I built a simple application using Redux. This is for my own educational purpose.
+I built a simple library list application using Redux.
+This app will display a list of libraries with details on what they are.
 
 ### Setup
 ```
@@ -55,8 +56,10 @@ store.getState();
 ### How Redux works in React Native
 ![alt text](demo/redux-react-native.png "redux react-native demo")
 
+### Lifecycle
+![alt text][demo/redux_lifecycle.png "redux react-native lifecycle"]
 
-### Implementation
+### Reducers
 ![alt text](demo/reducers.png "reducers")
 
 I have two reducers for two different states.
