@@ -13,6 +13,7 @@ $ npm install --save-dev eslint-config-rallycoding # make sure to setup [ESlint]
 
 ### Tech Stack
 React Native with Redux
+![alt text](demo/tech_stack_app.png "my app")
 ### Redux
 Use [Playground](https://stephengrider.github.io/JSPlaygrounds/)
 
@@ -62,4 +63,10 @@ store.getState();
 ### Reducers
 ![alt text](demo/reducers.png "reducers")
 
-I have two reducers for two different states.
+### My understanding
+1. Start of `provider tag` from `react-redux` library in [app.js](ReactNative/tech_stack/src/app.js) which facilitates the connection between react and redux.
+2. Pass instance of redux store  in [app.js](ReactNative/tech_stack/src/app.js).
+3. Create two reducers (library and selection) for two different states and combine them together `combineReducers` in [reducers/index.js](ReactNative/tech_stack/src/reducers/index.js) with assigned keys.
+4. Each reducer has a state and an action. [reducers/LibraryReducer](ReactNative/tech_stack/src/reducers/libraryReducer.js)
+5. Create a action creator [actions/index.js](ReactNative/tech_stack/src/actions/index.js) and it returns action (do sth)
+6. `mapStateToProps` function plucks properties out of `state` object and inject them into Components.
