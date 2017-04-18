@@ -19,8 +19,13 @@ React is an AMAZING Javascript library (some argue, is a framework) that allows 
 I will be building mobile apps in the future...
 
 ## References
+http://www.youhavetolearncomputers.com/blog/2015/9/15/a-conceptual-overview-of-redux-or-how-i-fell-in-love-with-a-javascript-state-container # great starter guide!
 https://babeljs.io/repl #great to check JSX with JS
 
 https://atom.io/packages/javascript-snippets #for hotkeys
 
 https://www.youtube.com/channel/UCVTlvUkGslCV_h-nSAId8Sw #great React.js videos
+
+https://www.youtube.com/watch?v=xsSnOQynTHs # Must watch for the beginner #1: video by a guy who made Redux
+
+https://coderpad.io/HH6MKWPP
