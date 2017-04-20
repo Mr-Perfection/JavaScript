@@ -15,9 +15,45 @@ This React JS will help you get quickly up to pace with React.js development. Re
 React is an AMAZING Javascript library (some argue, is a framework) that allows you to build extremely stable applications that are very easy to change and modify as the application changes and grows over time. I will be building several front-end applications in React to learn more about React.js. My ultimate goal is to build a React Native app for mobile platforms.
 
 
-## React-Native (COMING SOON)
-I will be building mobile apps in the future...
+## React-Native
+Check out my [React-Native Repo](ReactNative)
 
+
+
+## Thinking in React
+React is, in our opinion, the premier way to build big, fast Web apps with JavaScript. It has scaled very well for us at Facebook and Instagram.
+
+One of the many great parts of React is how it makes you think about apps as you build them.
+
+### Step 1: Start with A Mock
+1. Create a fake JSON data and a mockup.
+
+### Step 2: Break the UI into a Component Hierarchy
+1. Draw boxes around every component (and subcomponent) in the mock and give them all names. Every component should ideally do one thing. If it ends up growing, it should be decomposed into smaller subcomponents.
+
+![alt text](https://facebook.github.io/react/img/blog/thinking-in-react-components.png)
+
+### Step 3: Build A Static Version in React
+1. The easiest way is to build a version that takes your data model and renders the UI but has no interactivity. It's best to decouple these processes because building a static version requires a lot of typing and no thinking, and adding interactivity requires a lot of thinking and not a lot of typing.
+
+2. To build a static version of your app that renders your data model, you'll want to build components that reuse other components and pass data using props. props are a way of passing data from parent to child. If you're familiar with the concept of state, don't use state at all to build this static version. **State is reserved only for interactivity, that is, data that changes over time. Since this is a static version of the app, you don't need it.**
+
+3. You can build top-down or bottom-up. That is, you can either start with building the components higher up in the hierarchy or with the ones lower in it. In simpler examples, **it's usually easier to go top-down, and on larger projects, it's easier to go bottom-up and write tests as you build.**
+
+4. . It's easy to see how your UI is updated and where to make changes since there's nothing complicated going on. React's one-way data flow (also called **one-way binding**) keeps everything modular and fast.
+
+### Step 4:  Identify The Minimal (but complete) Representation Of UI State
+1. To make your UI interactive, you need to be able to trigger changes to your underlying data model. React makes this easy with state.
+
+2. think of the minimal set of mutable state that your app needs. The key here is DRY: Don't Repeat Yourself. Figure out the absolute minimal representation of the state your application needs and compute everything else you need on-demand
+
+3. Ask three questions for each piece of data:
+- Is it passed in from a parent via props? If so, it probably isn't state.
+- Does it remain unchanged over time? If so, it probably isn't state.
+- Can you compute it based on any other state or props in your component? If so, it isn't state.
+
+### Step 5: Identify Where Your State Should Live
+1. 
 ## References
 http://www.youhavetolearncomputers.com/blog/2015/9/15/a-conceptual-overview-of-redux-or-how-i-fell-in-love-with-a-javascript-state-container # great starter guide!
 https://babeljs.io/repl #great to check JSX with JS
