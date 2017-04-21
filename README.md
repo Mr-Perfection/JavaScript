@@ -61,7 +61,7 @@ One of the many great parts of React is how it makes you think about apps as you
 
 
 ## MVC and flux are similar concepts
-
+```
                  _________               ____________               ___________
                 |         |             |            |             |           |
                 | Action  |------------▶| Dispatcher |------------▶| callbacks |
@@ -81,7 +81,7 @@ One of the many great parts of React is how it makes you think about apps as you
                 |______________|         |___________|              |_________|
 
 
-
+```
 - Models look like stores
 - user events, data modifications and their handlers look like "action creators" -> action -> dispatcher -> callback
 - Views look like React views (or anything else as far as flux is concerned)
