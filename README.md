@@ -84,6 +84,8 @@ One of the many great parts of React is how it makes you think about apps as you
 - user events, data modifications and their handlers look like "action creators" -> action -> dispatcher -> callback
 - Views look like React views (or anything else as far as flux is concerned)
 
+### Action Creator
+
 ```js
 var actionCreator = function() {
     // ...that creates an action (yeah, the name action creator is pretty obvious now) and returns it
@@ -98,6 +100,257 @@ var actionCreator = function() {
 //the action creator can actually return something other than an action,
 // like a function
 ```
+
+### State
+1. Where do I keep all the data regarding my application along its lifetime?
+You keep it the way you want (JS object, array, Immutable structure, ...). Data of your application will be called **state**.
+2. How do I handle data modifications?
+Using reducers (called "stores" in traditional flux).
+A reducer is a subscriber to actions. A reducer is just a function that receives the current state of your application, the action,
+and returns a new state modified (or reduced as they call it).
+A reducer is just a function that receives the current state of your application, the action, and returns a new state modified (or reduced as they call it)
+3. How do I propagate modifications to all parts of my application?
+Using subscribers to state's modifications.
+4. How do we retrieve the state from our Redux instance?
+```js
+import { createStore } from 'redux'
+
+var reducer_0 = function (state, action) {
+    console.log('reducer_0 was called with state', state, 'and action', action)
+}
+
+var store_0 = createStore(reducer_0)
+// Output: reducer_0 was called with state undefined and action { type: '@@redux/INIT' }
+
+// To get the state that Redux is holding for us, you call getState
+console.log('store_0 state after initialization:', store_0.getState())
+// Output: store_0 state after initialization: undefined
+
+// So the state of our application is still undefined after the initialization? Well of course it is,
+// our reducer is not doing anything.
+//     "A reducer is just a function that receives the current state of your application, the action,
+//     and returns a new state modified (or reduced as they call it)"
+// Our reducer is not returning anything right now so the state of our application is what
+// reducer() returns, hence "undefined".
+
+var reducer_1 = function (state, action) {
+    console.log('reducer_1 was called with state', state, 'and action', action)
+    if (typeof state === 'undefined') {
+        return {}
+    }
+
+    return state;
+}
+
+var store_1 = createStore(reducer_1)
+// Output: reducer_1 was called with state undefined and action { type: '@@redux/INIT' }
+
+console.log('store_1 state after initialization:', store_1.getState())
+// Output: store_1 state after initialization: {}
+
+// better version!
+var reducer_3 = function (state = {}, action) {
+    console.log('reducer_3 was called with state', state, 'and action', action)
+
+    switch (action.type) {
+        case 'SAY_SOMETHING':
+            return {
+                ...state,
+                message: action.value
+            }
+        default:
+            return state;
+    }
+}
+
+var store_3 = createStore(reducer_3)
+// Output: reducer_3 was called with state {} and action { type: '@@redux/INIT' }
+
+console.log('store_3 state after initialization:', store_3.getState())
+// Output: store_3 state after initialization: {}
+```
+
+### Redux
+Redux ties all this together for you.
+1. a place to put your application state
+2. a mechanism to dispatch actions to modifiers of your application state, AKA reducers
+3. a mechanism to subscribe to state updates
+
+```js
+import { createStore } from 'redux'
+// createStore expects a function that will allow it to reduce your state.
+var store = createStore(() => {})
+
+var reducer = function (...args) {
+    console.log('Reducer was called with args', args)
+}
+var store_1 = createStore(reducer) //output: Reducer was called with args [ undefined, { type: '@@redux/INIT' } ]
+
+```
+
+### Combine Reducers
+```js
+// Let's declare 2 reducers
+
+var userReducer = function (state = {}, action) {
+    console.log('userReducer was called with state', state, 'and action', action)
+
+    switch (action.type) {
+        // etc.
+        default:
+            return state;
+    }
+}
+var itemsReducer = function (state = [], action) {
+    console.log('itemsReducer was called with state', state, 'and action', action)
+
+    switch (action.type) {
+        // etc.
+        default:
+            return state;
+    }
+}
+var nameReducer = function(state = [], action) {
+  console.log('nameReducer was called with state', state, 'and action', action)
+
+  switch (action.type) {
+    case 'full_name':
+      return state.join(' ');
+    default:
+      return state;
+
+  }
+}
+
+// I'd like you to pay special attention to the initial state that was actually given to
+// each reducer: userReducer got an initial state in the form of a literal object ({}) while
+// itemsReducer got an initial state in the form of an array ([]). This is just to
+// make clear that a reducer can actually handle any type of data structure. It's really
+// up to you to decide which data structure suits your needs (an object literal, an array,
+// a boolean, a string, an immutable structure, ...).
+
+// So how do we combine our reducers? And how do we tell Redux that each reducer will only handle
+// a slice of our state?
+
+import { createStore, combineReducers } from 'redux'
+
+var reducer = combineReducers({
+    user: userReducer,
+    items: itemsReducer
+})
+
+var store_0 = createStore(reducer)
+// Output:
+// userReducer was called with state {} and action { type: '@@redux/INIT' }
+// itemsReducer was called with state [] and action { type: '@@redux/INIT' }
+
+console.log('store_0 state after initialization:', store_0.getState())
+// Output:
+// store_0 state after initialization: { user: {}, items: [] }
+```
+### Dispatch an Action
+```js
+
+store_0.dispatch({
+    type: 'AN_ACTION'
+})
+// Output:
+// userReducer was called with state {} and action { type: 'AN_ACTION' }
+// itemsReducer was called with state [] and action { type: 'AN_ACTION' }
+
+var setNameActionCreator = function (name) {
+    return {
+        type: 'SET_NAME',
+        name: name
+    }
+}
+
+store_0.dispatch(setNameActionCreator('bob'))
+// Output:
+// userReducer was called with state {} and action { type: 'SET_NAME', name: 'bob' }
+// itemsReducer was called with state [] and action { type: 'SET_NAME', name: 'bob' }
+
+console.log('store_0 state after action SET_NAME:', store_0.getState())
+// Output:
+// store_0 state after action SET_NAME: { user: { name: 'bob' }, items: [] }
+
+```
+
+### Dispatch Async. Action
+Let's now imagine a simple asynchronous use-case:
+1. user clicks on button "Say Hi in 2 seconds"
+2. When button "A" is clicked, we'd like to show message "Hi" after 2 seconds have elapsed
+3. 2 seconds later, our view is updated with the message "Hi"
+
+```js
+// Of course this message is part of our application state so we have to save it
+// in Redux store. But what we want is to have our store save the message
+// only 2 seconds after the action creator is called (because if we were to update our state
+// immediately, any subscriber to state's modifications - like our view - would be notified right away
+// and would then react to this update 2 seconds too soon).
+
+import { createStore, combineReducers } from 'redux';
+
+var reducer = combineReducers({
+    speaker: function(state = {}, action) {
+      console.log('speaker was called with state', state, 'and action', action);
+
+      switch (action.type) {
+        case 'SAY':
+          return {
+            ...state,
+            message: action.message
+          }
+        default:
+          return state;
+      }
+    } //speaker
+});
+
+var store_0 = createStore(reducer);
+
+var sayActionCreator = function(message) {
+    return {
+      type: 'SAY',
+      message
+    }
+}
+
+store_0.dispatch(sayActionCreator('Hi'));
+console.log('store_0 state after action SAY:', store_0.getState())
+// Output (skipping initialization output):
+//     Sun Aug 02 2015 01:03:05 GMT+0200 (CEST)
+//     speaker was called with state {} and action { type: 'SAY', message: 'Hi' }
+//     Sun Aug 02 2015 01:03:05 GMT+0200 (CEST)
+//     store_0 state after action SAY: { speaker: { message: 'Hi' } }
+
+var asyncSayActionCreator_0 = function (message) {
+    setTimeout(function () {
+        return {
+            type: 'SAY',
+            message
+        }
+    }, 2000)
+}
+// But then our action creator would not return an action, it would return "undefined".
+
+var asyncSayActionCreator_1 = function (message) {
+    return function(dispatch) {
+      setTimeout(function() {
+        dispatch({
+          type: 'SAY',
+          message
+        })
+      }, 2000);
+    }
+}
+// Again you'll notice that our action creator is not returning an action, it is returning a function.
+// So there is a high chance that our reducers won't know what to do with it.
+//NEXT => https://github.com/happypoulp/redux-tutorial/blob/master/08_dispatch-async-action-2.js
+```
+
+
+
 ## References
 http://www.youhavetolearncomputers.com/blog/2015/9/15/a-conceptual-overview-of-redux-or-how-i-fell-in-love-with-a-javascript-state-container # great starter guide!
 
@@ -109,4 +362,4 @@ https://www.youtube.com/channel/UCVTlvUkGslCV_h-nSAId8Sw #great React.js videos
 
 https://www.youtube.com/watch?v=xsSnOQynTHs # Must watch for the beginner #1: video by a guy who made Redux
 
-https://coderpad.io/HH6MKWPP
+https://github.com/happypoulp/redux-tutorial # Great tutorial for starters
