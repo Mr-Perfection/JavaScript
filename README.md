@@ -53,9 +53,54 @@ One of the many great parts of React is how it makes you think about apps as you
 - Can you compute it based on any other state or props in your component? If so, it isn't state.
 
 ### Step 5: Identify Where Your State Should Live
-1. 
+1. For each piece of state in your application:
+- Identify every component that renders something based on that state.
+- Find a common owner component (a single component above all the components that need the state in the hierarchy).
+- Either the common owner or another component higher up in the hierarchy should own the state.
+- If you can't find a component where it makes sense to own the state, create a new component simply for holding the state and add it somewhere in the hierarchy above the common owner component.
+
+
+## MVC and flux are similar concepts
+
+                 _________               ____________               ___________
+                |         |             |            |             |           |
+                | Action  |------------▶| Dispatcher |------------▶| callbacks |
+                |_________|             |____________|             |___________|
+                     ▲                                                   |
+                     |                                                   |
+                     |                                                   |
+ _________       ____|_____                                          ____▼____
+|         |◀----|  Action  |                                        |         |
+| Web API |     | Creators |                                        |  Store  |
+|_________|----▶|__________|                                        |_________|
+                     ▲                                                   |
+                     |                                                   |
+                 ____|________           ____________                ____▼____
+                |   User       |         |   React   |              | Change  |
+                | interactions |◀--------|   Views   |◀-------------| events  |
+                |______________|         |___________|              |_________|
+
+- Models look like stores
+- user events, data modifications and their handlers look like "action creators" -> action -> dispatcher -> callback
+- Views look like React views (or anything else as far as flux is concerned)
+
+```js
+var actionCreator = function() {
+    // ...that creates an action (yeah, the name action creator is pretty obvious now) and returns it
+    return {
+        type: 'AN_ACTION'
+    }
+}
+//This is kind of a convention in flux
+// that the action is an object that contains a "type" property. This type allows for further
+// handling of the action. Of course, the action can also contain other properties to
+// pass any data you want.
+//the action creator can actually return something other than an action,
+// like a function
+```
 ## References
 http://www.youhavetolearncomputers.com/blog/2015/9/15/a-conceptual-overview-of-redux-or-how-i-fell-in-love-with-a-javascript-state-container # great starter guide!
+
 https://babeljs.io/repl #great to check JSX with JS
 
 https://atom.io/packages/javascript-snippets #for hotkeys
