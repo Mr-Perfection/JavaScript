@@ -348,9 +348,71 @@ var asyncSayActionCreator_1 = function (message) {
 }
 // Again you'll notice that our action creator is not returning an action, it is returning a function.
 // So there is a high chance that our reducers won't know what to do with it.
-//NEXT => https://github.com/happypoulp/redux-tutorial/blob/master/08_dispatch-async-action-2.js
+
+console.log("\n", 'Running our async action creator:', "\n")
+store_0.dispatch(asyncSayActionCreator_1('Hi'))
+
+// Output:
+//     ...
+//     /Users/classtar/Codes/redux-tutorial/node_modules/redux/node_modules/invariant/invariant.js:51
+//         throw error;
+//               ^
+//     Error: Invariant Violation: Actions must be plain objects. Use custom middleware for async actions.
+//     ...
+// Thanks Redux for the hint! We gotta set up middleware
 ```
 
+### Middleware
+Middleware is one that connects between point A and B of an application to transform what A sends before passing it to B.
+
+```
+Instead of
+A ---> B
+A ---> middleware 1 ---> middleware 2 ... ---> B
+
+action ---> dispatcher ---> middleware 1 ---> middleware 2 ---> reducers
+
+// Our middleware will be called each time an action (or whatever else, like a function in our
+// async action creator case) is dispatched and it should be able to help our action creator
+// dispatch the real action when it wants to (or do nothing - this is a totally valid and
+// sometimes desired behavior).
+
+```
+```js
+let anyMiddleware = function( { dispatch, getState} ) {
+  return function (next) {
+    return function (action) {
+      // your middleware-specific code goes here.
+    }
+  }
+};
+```
+As you can see the code above, a middleware is made up of *3 nested functions* called sequentially:
+1. The first level provides the `dispatch` function and a `getState` function (if your middleware or your action creator needs to read data from state) to the 2 other levels
+2. The second level provides the `next` function that will allow you to explicitly hand over your transformed input to the next middleware or to Redux (so that Redux can finally call all reducers).
+3. The third level provides the action received from the previous middleware or from your dispatch and can either trigger the next middleware or process action.
+
+Use **Redux Thunk** and `curry` function to simplify the code above.
+```js
+// The middleware we have to build for our async action creator is called a thunk middleware and
+// its code is provided here: https://github.com/gaearon/redux-thunk.
+
+let thunkMiddleware = function( {dispatch, getState} ){
+  return function(next) {
+    return function(action) {
+      return typeof action === 'function' ? action(dispatch, getState) : next(action);
+    }
+  }
+}
+
+// "curry" may come from any functional programming library (lodash, ramda, etc.)
+let thunkMiddleware = curry(
+  ( {dispatch, getState}, next, action ) => (
+    return typeof(action) === 'function' ? action(dispatch, getState) : next(action)
+  )
+);
+```
+To tell Redux that we have one or more middlewares, we must use one of Redux's helper functions: `applyMiddleware`
 
 
 ## References
