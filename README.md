@@ -387,6 +387,7 @@ let anyMiddleware = function( { dispatch, getState} ) {
   }
 };
 ```
+
 As you can see the code above, a middleware is made up of *3 nested functions* called sequentially:
 1. The first level provides the `dispatch` function and a `getState` function (if your middleware or your action creator needs to read data from state) to the 2 other levels
 2. The second level provides the `next` function that will allow you to explicitly hand over your transformed input to the next middleware or to Redux (so that Redux can finally call all reducers).
@@ -412,9 +413,86 @@ let thunkMiddleware = curry(
   )
 );
 ```
-To tell Redux that we have one or more middlewares, we must use one of Redux's helper functions: `applyMiddleware`
 
+To tell Redux that we have one or more middlewares, we must use one of Redux's helper functions: `applyMiddleware`.
 
+```js
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+
+const finalCreateStore = applyMiddleware(thunkMiddleware)(createStore);
+// For multiple middlewares, write: applyMiddleware(middleware1, middleware2, ...)(createStore)
+// let reducer = combineReducers({
+//   speaker: function (state = {}, action) {
+//     console.log('speaker was called with state', state, 'and action', action);
+//     switch (action.type) {
+//       case 'SAY':
+//           return {
+//               ...state,
+//               message: action.message
+//           }
+//       default:
+//           return state;
+//     }    
+// });
+
+const store_0 = finalCreateStore(reducer);
+// Output:
+//     speaker was called with state {} and action { type: '@@redux/INIT' }
+//     speaker was called with state {} and action { type: '@@redux/PROBE_UNKNOWN_ACTION_s.b.4.z.a.x.a.j.o.r' }
+//     speaker was called with state {} and action { type: '@@redux/INIT' }
+
+let asyncSayActionCreator_1 = function( message ) {
+  return function (dispatch) {
+    setTimeout(function() {
+      console.log(new Date(), 'dispatch action now');
+      dispatch({
+        type: 'SAY',
+        message
+      });
+    }, 3000)
+  }
+}
+
+store_0.dispatch(asyncSayActionCreator_1('Hi'));
+
+function logMiddleware({dispatch, getState }) {
+  return function(next) {
+    return function(action) {
+      console.log('logMiddleware action received', action);
+      return next(action);
+    }
+  }
+}
+
+// Same below for a middleware to discard all actions that are dispatched (not very useful as is
+// but with a bit of more logic it could selectively discard a few actions while passing others
+// to next middleware or Redux):
+function discardMiddleware ({ dispatch, getState }) {
+    return function(next) {
+        return function (action) {
+            console.log('discardMiddleware action received:', action)
+        }
+    }
+}
+```
+
+### State subscriber
+
+```
+ _________      _________       ___________
+|         |    | Change  |     |   React   |
+|  Store  |----▶ events  |-----▶   Views   |
+|_________|    |_________|     |___________|
+```
+Without state subscriber, views cannot be updated when the store changes.
+
+```js
+import { createStore, combineStore } from 'redux';
+
+var itemsReducer = function(state = [], action) {
+  console.log('itemsReducer was called with state', state, 'and action', action);
+}
+```
 ## References
 http://www.youhavetolearncomputers.com/blog/2015/9/15/a-conceptual-overview-of-redux-or-how-i-fell-in-love-with-a-javascript-state-container # great starter guide!
 
